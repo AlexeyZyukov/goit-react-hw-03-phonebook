@@ -18,13 +18,15 @@ class Contacts extends Component {
             </li>
           );
         })}
+        {/* <button type="reset" className="button" onClick={onDeleteAll}>
+          Delete all contacts
+        </button> */}
       </ul>
     );
   }
 }
 
 Contacts.propTypes = {
-  contacts: PropTypes.array.isRequired,
   onDelete: PropTypes.func.isRequired,
 };
 export default Contacts;

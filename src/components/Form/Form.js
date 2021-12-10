@@ -2,11 +2,13 @@ import React, { Component } from 'react';
 import { v4 as uuidv4 } from 'uuid';
 import styles from '../styles.module.css';
 
+const INITIAL_STATE = {
+  name: '',
+  number: '',
+};
+
 class Form extends Component {
-  state = {
-    name: '',
-    number: '',
-  };
+  state = { ...INITIAL_STATE };
 
   handleChange = evt => {
     const { name, value } = evt.currentTarget;
@@ -14,16 +16,15 @@ class Form extends Component {
   };
 
   handleSubmit = evt => {
+    const { onSubmit } = this.props;
     evt.preventDefault();
-    this.props.onSubmit(this.state);
+    onSubmit(this.state);
     this.reset();
+    console.log(this.state);
   };
 
   reset = () => {
-    this.setState({
-      name: '',
-      number: '',
-    });
+    this.setState({ ...INITIAL_STATE });
   };
 
   render() {
@@ -58,7 +59,6 @@ class Form extends Component {
             required
           />
         </label>
-
         <button type="submit" className="button">
           Add contact
         </button>
