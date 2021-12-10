@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 
 class Filter extends Component {
   render() {
-    const { filter, onChange } = this.props;
+    const { toFind, onChange } = this.props;
     return (
       <div className="container">
         <p className="filterTitle">Find contacts by name</p>
@@ -11,7 +11,7 @@ class Filter extends Component {
           className="formInput"
           type="text"
           name="filter"
-          value={filter}
+          value={toFind}
           onChange={onChange}
         />
       </div>
