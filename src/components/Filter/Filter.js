@@ -8,7 +8,7 @@ export default class Filter extends Component {
   };
 
   render() {
-    const { toFind, onChange } = this.props;
+    const { toFind, onFilterChange } = this.props;
     return (
       <div className="container">
         <p className="filterTitle">Find contacts by name</p>
@@ -17,7 +17,7 @@ export default class Filter extends Component {
           type="text"
           name="filter"
           value={toFind}
-          onChange={onChange}
+          onChange={onFilterChange}
         />
       </div>
     );

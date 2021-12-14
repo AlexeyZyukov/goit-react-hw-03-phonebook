@@ -55,8 +55,9 @@ export default class App extends Component {
   }
 
   componentDidUpdate(prevState) {
-    if (this.state.contacts !== prevState.contacts) {
-      localStorage.setItem('phoneBook', JSON.stringify(this.state.contacts));
+    const { contacts } = this.state;
+    if (contacts !== prevState.contacts) {
+      localStorage.setItem('phoneBook', JSON.stringify(contacts));
     }
   }
 
@@ -64,9 +65,9 @@ export default class App extends Component {
     return (
       <div className={(styles.container, styles.wrapper)}>
         <h1 className="title">Phonebook</h1>
-        <Form onSubmit={this.addContact} />
+        <Form onFormSubmit={this.addContact} />
         <h2 className="title">Contacts</h2>
-        <Filter onChange={this.changeFilter} toFind={this.filter} />
+        <Filter onFilterChange={this.changeFilter} toFind={this.filter} />
         <Contacts
           onFilter={this.filterContacts()}
           onDelete={this.deleteContact}
