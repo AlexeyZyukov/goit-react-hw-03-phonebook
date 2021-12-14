@@ -1,13 +1,13 @@
 import React, { Component } from 'react';
 import { v4 as uuidv4 } from 'uuid';
-import styles from '../styles.module.css';
+import styles from './form.module.css';
 
 const INITIAL_STATE = {
   name: '',
   number: '',
 };
 
-class Form extends Component {
+export default class Form extends Component {
   state = { ...INITIAL_STATE };
 
   handleChange = evt => {
@@ -66,5 +66,3 @@ class Form extends Component {
     );
   }
 }
-
-export default Form;

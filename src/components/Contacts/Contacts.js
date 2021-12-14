@@ -1,8 +1,12 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import styles from '../styles.module.css';
+import styles from './contacts.module.css';
 
-class Contacts extends Component {
+export default class Contacts extends Component {
+  static propTypes = {
+    onDelete: PropTypes.func.isRequired,
+  };
+
   render() {
     const { onFilter, onDelete } = this.props;
     return (
@@ -18,15 +22,7 @@ class Contacts extends Component {
             </li>
           );
         })}
-        {/* <button type="reset" className="button" onClick={onDeleteAll}>
-          Delete all contacts
-        </button> */}
       </ul>
     );
   }
 }
-
-Contacts.propTypes = {
-  onDelete: PropTypes.func.isRequired,
-};
-export default Contacts;

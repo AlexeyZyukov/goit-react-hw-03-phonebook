@@ -1,7 +1,12 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 
-class Filter extends Component {
+export default class Filter extends Component {
+  static propTypes = {
+    filter: PropTypes.string,
+    onChange: PropTypes.func.isRequired,
+  };
+
   render() {
     const { toFind, onChange } = this.props;
     return (
@@ -18,9 +23,3 @@ class Filter extends Component {
     );
   }
 }
-
-Filter.propTypes = {
-  filter: PropTypes.string,
-  onChange: PropTypes.func.isRequired,
-};
-export default Filter;

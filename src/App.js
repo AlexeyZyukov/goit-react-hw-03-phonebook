@@ -7,7 +7,7 @@ import styles from './components/styles.module.css';
 
 import { v4 as uuidv4 } from 'uuid';
 
-class App extends Component {
+export default class App extends Component {
   state = {
     contacts: [
       { id: 'id-1', name: 'Rosie Simpson', number: '459-12-56' },
@@ -22,10 +22,8 @@ class App extends Component {
     if (contacts.some(contact => contact.name.includes(name))) {
       alert(`${name} is already in contacts!`);
     } else {
-      this.setState(({ contacts }) => {
-        return {
-          contacts: [...contacts, { name, number, id: uuidv4() }],
-        };
+      this.setState({
+        contacts: [...contacts, { name, number, id: uuidv4() }],
       });
     }
   };
@@ -44,29 +42,17 @@ class App extends Component {
 
   filterContacts = () => {
     const { contacts, filter } = this.state;
-    const result = contacts.filter(contacts =>
+    return contacts.filter(contacts =>
       contacts.name.toLowerCase().includes(filter.toLowerCase()),
     );
-    console.log(result);
-    return result;
   };
 
   componentDidMount() {
-    const contactsFrmStorage = JSON.parse(
-      window.localStorage.getItem('contacts'),
-    );
+    const contactsFrmStorage = JSON.parse(localStorage.getItem('phoneBook'));
     if (contactsFrmStorage) {
       this.setState({ contacts: contactsFrmStorage });
     }
   }
-
-  // componentDidMount() {
-  //   const { contacts } = this.state;
-  //   localStorage.setItem('phoneBook', JSON.stringify({ ...contacts }));
-  //   console.log(localStorage);
-  //   console.log('contacts = ', { ...contacts });
-  //   console.log(`${JSON.stringify({ ...contacts })}`);
-  // };
 
   componentDidUpdate(prevState) {
     if (this.state.contacts !== prevState.contacts) {
@@ -89,5 +75,3 @@ class App extends Component {
     );
   }
 }
-
-export default App;

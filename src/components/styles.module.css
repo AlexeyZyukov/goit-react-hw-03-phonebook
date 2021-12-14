@@ -6,26 +6,3 @@
   align-items: center;
   background-color: #a9f7dd;
 }
-
-.form {
-  display: flex;
-  flex-wrap: wrap;
-  flex-direction: column;
-}
-.formInput {
-  margin-bottom: 10px;
-}
-.contactList {
-  min-width: fit-content;
-  margin: 0;
-  padding: 10px 0px;
-}
-.contactListItem {
-  display: flex;
-  min-width: 400px;
-  flex-direction: row;
-  justify-content: space-between;
-}
-.contactListItem:not(:last-of-type) {
-  margin-bottom: 5px;
-}
